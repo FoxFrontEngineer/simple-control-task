@@ -1,0 +1,25 @@
+.info-hover__tooltip
+    background-color: #5e6cab
+    z-index: 2
+    width: 350px
+    position: absolute
+    padding: 20px
+    visibility: visible
+    opacity: 1
+    transition: visibility 0s, opacity 1s linear
+    &::after
+        content: ''
+        z-index: 1
+        position: absolute
+        left: 0
+        top: -12px
+        border: 20px solid transparent
+        border-top: 20px solid #5e6cab
+        transform: rotate(-90deg)
+    &--show
+        opacity: 1
+
+.info-hover
+    &:hover ~ .info-hover__tooltip
+        visibility: visible
+        opacity: 1

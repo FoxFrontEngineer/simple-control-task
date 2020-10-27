@@ -7,6 +7,7 @@ import RadioButton from "./RadioButton/RadioButton";
 import Detail from "./Detail/Detail";
 import Form from "./Form/Form";
 import Toggler from "./Toggler/Toggler";
+import InformationToolTip from "./InformationToolTip/InformationToolTip";
 
 import "./style.sass";
 
@@ -34,7 +35,7 @@ const BasicControl = () => {
         value={1}
         onCheck={(type: number) => handleCheck(type)}
       />
-      <div className="row">
+      <div className="row-tooltip">
         <RadioButton
           name="mrot"
           label="Мрот"
@@ -42,7 +43,7 @@ const BasicControl = () => {
           value={2}
           onCheck={(type: number) => handleCheck(type)}
         />
-        <div>info</div>
+        <InformationToolTip />
       </div>
       <RadioButton
         name="payment_day"
