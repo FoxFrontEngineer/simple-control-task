@@ -5,11 +5,18 @@ interface RadioButtonProps {
   value: number;
   isChecked: boolean;
   label: string;
+  onCheck: any;
 }
 
-const RadioButton = ({ isChecked, name, value, label }: RadioButtonProps) => {
+const RadioButton = ({
+  isChecked,
+  name,
+  value,
+  label,
+  onCheck,
+}: RadioButtonProps) => {
   const handleChange = (value: string) => {
-    console.info(value);
+    onCheck && onCheck(+value);
   };
 
   return (

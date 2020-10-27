@@ -1,0 +1,1 @@
+export const CHECK_PAYMENT_TYPE = "CHECK_PAYMENT_TYPE";
