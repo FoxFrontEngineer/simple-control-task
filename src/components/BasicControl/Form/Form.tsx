@@ -1,5 +1,5 @@
-import React from "react";
-import { Field, reduxForm } from "redux-form";
+import React, { useMemo } from "react";
+import { Field, reduxForm, InjectedFormProps } from "redux-form";
 
 import "./style.sass";
 
@@ -15,7 +15,22 @@ const onlyDigit = (value: any) => {
   }
 };
 
-const Form = () => {
+type PropsOwn = {
+  paymentType: string;
+};
+
+const Form: React.FC<InjectedFormProps & PropsOwn> = ({
+  paymentType,
+}: PropsOwn) => {
+  const computedSpan = useMemo(() => {
+    if (+paymentType === 3) {
+      return <span>в день</span>;
+    }
+    if (+paymentType === 4) {
+      return <span>в час</span>;
+    }
+  }, [paymentType]);
+
   return (
     <div className="form">
       <Field
@@ -25,10 +40,12 @@ const Form = () => {
         type="text"
         normalize={onlyDigit}
       />
+      <span>Р {computedSpan}</span>
     </div>
   );
 };
 
-export default reduxForm({
+// не разобрался, что вместо any нужно указывать, PropsOwn не принимает
+export default reduxForm<InjectedFormProps, any>({
   form: "simple",
 })(Form);
