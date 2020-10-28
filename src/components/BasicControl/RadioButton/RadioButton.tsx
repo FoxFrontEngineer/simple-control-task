@@ -22,18 +22,17 @@ const RadioButton = ({
   };
 
   return (
-    <div className="form-check">
+    <div className="radio">
       <input
-        className="form-check__input"
+        className="radio__input"
         type="radio"
         name={name}
         onChange={(e) => handleChange(e.target.value)}
         value={value}
         checked={isChecked}
       />
-      <label className="form-check__label" htmlFor={name}>
-        {label}
-      </label>
+      <label htmlFor={name}>{label}</label>
+      <span className="checkmark"></span>
     </div>
   );
 };

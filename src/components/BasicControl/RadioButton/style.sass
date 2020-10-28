@@ -1,8 +1,33 @@
-.form-check
+.radio
     padding: 0
     &__input
         margin: 0 5px 0 0
         padding: 0 5px 0 0
+        z-index: -1
+        &:checked
+            &:after
+                content: " "
+                display: block
+                position: absolute
+                margin-top: -13px
+                margin-left: 3px
+                width: 8px
+                height: 8px
+                background-color: black
+                border-radius: 50%
+                z-index: 2
+            &:before
+                content: " "
+                display: block
+                position: relative
+                left: -1px
+                top: -1px
+                width: 16px
+                height: 16px
+                background-color: white
+                border: 1px solid black
+                border-radius: 50%
+                z-index: 2
     &__label
         position: relative
         top: -2px

@@ -36,7 +36,7 @@ const BasicControl = () => {
         value={1}
         onCheck={(type: number) => handleCheck(type)}
       />
-      <div className="row-tooltip">
+      <div className="basic-control__tooltip">
         <RadioButton
           name="mrot"
           label="МРОТ"
@@ -44,7 +44,7 @@ const BasicControl = () => {
           value={2}
           onCheck={(type: number) => handleCheck(type)}
         />
-        <div className="row-tooltip__info">
+        <div className="basic-control__info">
           <InformationToolTip />
         </div>
       </div>
@@ -71,9 +71,14 @@ const BasicControl = () => {
         />
       </div>
       <Form paymentType={paymentType} />
-      {amount && paymentType === 1 && (
-        <Detail ndflToggleStatus={ndflToggleStatus} amount={+amount} />
-      )}
+      <div className="basic-control__detail">
+        {amount && paymentType === 1 && (
+          <Detail
+            ndflToggleStatus={ndflToggleStatus}
+            amount={+amount.replace(" ", "")}
+          />
+        )}
+      </div>
     </div>
   );
 };

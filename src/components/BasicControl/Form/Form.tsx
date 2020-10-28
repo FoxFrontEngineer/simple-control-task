@@ -7,12 +7,8 @@ const renderField = ({ input, label, type }: any) => (
   <input className="form-input" {...input} placeholder={label} type={type} />
 );
 
-const onlyDigit = (value: any) => {
-  if (!Number.isNaN(value % 10)) {
-    return value;
-  } else {
-    return value.slice(0, -1);
-  }
+const onlyDigit = (value: string) => {
+  return value.replace(/[aA-zZ,аА-яЯ]/g, "");
 };
 
 type PropsOwn = {
@@ -40,7 +36,9 @@ const Form: React.FC<InjectedFormProps & PropsOwn> = ({
         type="text"
         normalize={onlyDigit}
       />
-      <span className="rub">&#8381; {computedSpan}</span>
+      <p className="form__text">
+        <span className="rub">&#8381;</span> {computedSpan}
+      </p>
     </div>
   );
 };
