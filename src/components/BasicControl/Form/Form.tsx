@@ -40,7 +40,7 @@ const Form: React.FC<InjectedFormProps & PropsOwn> = ({
         type="text"
         normalize={onlyDigit}
       />
-      <span>Р {computedSpan}</span>
+      <span className="rub">&#8381; {computedSpan}</span>
     </div>
   );
 };

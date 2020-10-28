@@ -1,11 +1,42 @@
+.info
+    cursor: pointer
+    position: relative
+    width: 14px
+    height: 14px
+    color: #7b7db9
+    border: 1px solid #7b7db9
+    border-radius: 50%
+    &--close
+        border: 1px solid #9d9d9d
+
+.info-hover
+    display: flex
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    border-radius: 50%
+    font-size: 10px
+    padding-right: 0.5px
+    &:hover ~ .info-hover__tooltip
+        visibility: visible
+        opacity: 1
+
 .info-hover__tooltip
     background-color: #5e6cab
-    z-index: 2
-    width: 350px
+    font-family: 'Open Sans', sans-serif
+    color: white
+    font-size: 11px
+    font-weight: 600
+    z-index: 999
+    pointer-events: none
+    width: 220px
     position: absolute
-    padding: 20px
+    left: 6px
+    top: 30px
+    padding: 15px
     visibility: visible
-    opacity: 1
+    opacity: 0
     transition: visibility 0s, opacity 1s linear
     &::after
         content: ''
@@ -19,7 +50,22 @@
     &--show
         opacity: 1
 
-.info-hover
-    &:hover ~ .info-hover__tooltip
-        visibility: visible
-        opacity: 1
+.close
+    width: 100%
+    height: 100%
+    display: flex
+    justify-content: center
+    align-items: center
+
+    &:before, &:after
+        position: absolute
+        content: ' '
+        height: 6px
+        width: 2px
+        background-color: #9d9d9d
+
+    &:before
+        transform: rotate(45deg)
+
+    &:after
+        transform: rotate(-45deg)

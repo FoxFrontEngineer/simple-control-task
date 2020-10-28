@@ -1,5 +1,7 @@
 import React from "react";
 
+import "./style.sass";
+
 interface RadioButtonProps {
   name: string;
   value: number;
@@ -22,14 +24,14 @@ const RadioButton = ({
   return (
     <div className="form-check">
       <input
-        className="form-check-input"
+        className="form-check__input"
         type="radio"
         name={name}
         onChange={(e) => handleChange(e.target.value)}
         value={value}
         checked={isChecked}
       />
-      <label className="form-check-label" htmlFor={name}>
+      <label className="form-check__label" htmlFor={name}>
         {label}
       </label>
     </div>

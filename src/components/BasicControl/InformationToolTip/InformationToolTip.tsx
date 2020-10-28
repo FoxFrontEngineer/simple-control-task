@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import classnames from "classnames";
 
 import "./style.sass";
 
@@ -10,21 +11,25 @@ const InformationToolTip = () => {
   };
 
   return (
-    <div className="information">
+    <div className={classnames("info", mode === "static" && "info--close")}>
       {mode === "hover" ? (
         <>
-          <span className="info-hover" onClick={() => handleMode("static")}>
-            i
-          </span>
+          <div className="info-hover" onClick={() => handleMode("static")}>
+            <span>i</span>
+          </div>
           <div className="info-hover__tooltip">
-            МРОТ - минимальный размер оплаты труда. Разный для разных регионов.
+            МРОТ &mdash; минимальный размер оплаты труда. Разный для разных
+            регионов.
           </div>
         </>
       ) : (
         <>
-          <span onClick={() => handleMode("hover")}>x</span>
+          <div className="info-hover" onClick={() => handleMode("hover")}>
+            <span className="close"></span>
+          </div>
           <div className="info-hover__tooltip info-hover__tooltip--show">
-            МРОТ - минимальный размер оплаты труда. Разный для разных регионов.
+            МРОТ &mdash; минимальный размер оплаты труда. Разный для разных
+            регионов.
           </div>
         </>
       )}

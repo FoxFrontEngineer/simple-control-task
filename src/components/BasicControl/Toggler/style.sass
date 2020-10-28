@@ -1,8 +1,21 @@
+.prelabel, .postlabel
+    font-size: 11px
+    font-family: 'Open Sans', sans-serif
+    font-weight: 700
+    color: #b9b9b9
+    margin-bottom: 0
+    position: relative
+    top: -4px
+    padding: 0 5px
+    &--active
+        color: #404040
+
 .switch
     position: relative
     display: inline-block
     width: 35px
-    height: 21px
+    height: 16px
+    margin-bottom: 0
 
     input
         display: none
@@ -21,10 +34,10 @@
     &:before
         position: absolute
         content: ""
-        height: 16px
-        width: 16px
-        left: 3px
-        bottom: 2px
+        height: 14px
+        width: 14px
+        left: 4px
+        bottom: 1px
         background-color: white
         -webkit-transition: .4s
         transition: .4s
@@ -37,11 +50,9 @@ input
         box-shadow: 0 0 1px #f9a430
 
     &:checked + .slider:before
-        -webkit-transform: translateX(13px)
-        -ms-transform: translateX(13px)
-        transform: translateX(13px)
-
-/* Rounded sliders
+        -webkit-transform: translateX(14px)
+        -ms-transform: translateX(14px)
+        transform: translateX(14px)
 
 .slider.round
     border-radius: 34px

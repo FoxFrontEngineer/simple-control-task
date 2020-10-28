@@ -7,7 +7,6 @@ import "./App.sass";
 const App = () => {
   return (
     <div className="container mt-5">
-      <p className="label">Сумма</p>
       <BasicControl />
     </div>
   );

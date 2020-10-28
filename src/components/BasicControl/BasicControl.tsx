@@ -28,9 +28,10 @@ const BasicControl = () => {
 
   return (
     <div className="basic-control">
+      <p className="basic-control__title">Сумма</p>
       <RadioButton
         name="payment_month"
-        label="Оплата за месяц"
+        label="Оклад за месяц"
         isChecked={paymentType === 1}
         value={1}
         onCheck={(type: number) => handleCheck(type)}
@@ -38,12 +39,14 @@ const BasicControl = () => {
       <div className="row-tooltip">
         <RadioButton
           name="mrot"
-          label="Мрот"
+          label="МРОТ"
           isChecked={paymentType === 2}
           value={2}
           onCheck={(type: number) => handleCheck(type)}
         />
-        <InformationToolTip />
+        <div className="row-tooltip__info">
+          <InformationToolTip />
+        </div>
       </div>
       <RadioButton
         name="payment_day"
@@ -59,12 +62,14 @@ const BasicControl = () => {
         value={4}
         onCheck={(type: number) => handleCheck(type)}
       />
-      <Toggler
-        preLabel="Указать с НДФЛ"
-        postLabel="Указать Без НДФЛ"
-        isChecked={ndflToggleStatus}
-        onSwitch={handleSwitch}
-      />
+      <div className="basic-control__toggler">
+        <Toggler
+          preLabel="Указать с НДФЛ"
+          postLabel="Без НДФЛ"
+          isChecked={ndflToggleStatus}
+          onSwitch={handleSwitch}
+        />
+      </div>
       <Form paymentType={paymentType} />
       {amount && paymentType === 1 && (
         <Detail ndflToggleStatus={ndflToggleStatus} amount={+amount} />

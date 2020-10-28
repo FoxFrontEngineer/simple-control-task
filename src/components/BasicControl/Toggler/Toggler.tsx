@@ -1,4 +1,5 @@
 import React from "react";
+import classnames from "classnames";
 import "./style.sass";
 
 interface TogglerProps {
@@ -20,12 +21,20 @@ const Toggler = ({
 
   return (
     <div>
-      <span>{preLabel}</span>
+      <span
+        className={classnames("prelabel", !isChecked && "prelabel--active")}
+      >
+        {preLabel}
+      </span>
       <label className="switch">
         <input onChange={handleChange} type="checkbox" checked={isChecked} />
         <span className="slider round"></span>
       </label>
-      <span>{postLabel}</span>
+      <span
+        className={classnames("postlabel", isChecked && "postlabel--active")}
+      >
+        {postLabel}
+      </span>
     </div>
   );
 };
